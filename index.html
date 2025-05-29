@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS card generatort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form">
+        <div class="input_box">
+            <input type="text" class="form_input" name="fullname" id="form_name" required>
+            <label for="form_name">Full Name</label>
+        </div>
+        <div class="input_box">
+            <input type="email" class="form_input" name="email" id="form_email" required>
+            <label for="form_email">Email</label>
+        </div>
+        <div class="input_box">
+            <input type="text" class="form_input" name="designation" id="form_designation" required>
+            <label for="form_designation">Designation</label>
+        </div>
+        <div class="input_box">
+            <textarea name="about" class="form_input" id="form_about" required></textarea>
+            <label for="form_about">About</label>
+        </div>
+        <div class="image_uploader">
+            <div class="img_upload_container">
+                <div class="input_img">
+                    <input type="file" name="profile_img" id="form_profile_img" accept="images/*" hidden>
+                    <label for="form_profile_img">
+                        <span><ion-icon name="cloud-upload-outline"></ion-icon></span>
+                        <p>Profile Image</p>
+                    </label>
+                </div>
+                <p class="uploaded">Untitled.png</p>
+            </div>
+            <div class="img_upload_container">
+                <div class="input_img">
+                    <input type="file" name="profile_cover" id="form_profile_cover" accept="images/*" hidden>
+                    <label for="form_profile_cover">
+                        <span><ion-icon name="cloud-upload-outline"></ion-icon></span>
+                        <p>Cover Image</p>
+                    </label>
+                </div>
+                <p class="uploaded">Untitled.png</p>
+            </div>
+        </div>
+
+        <input type="button" value="Genereate" id="submit_btn">
+    </div>
+    <div class="hz_line"></div>
+    <div class="cards_container">
+        <h2>Cards</h2>
+        <div class="cards_slider">
+            <!-- <div class="card">
+                <div class="cover_image">
+                    <img src="images/cover.jpg" alt="">
+                </div>
+                <div class="profile_pic">
+                    <img src="images/profile_2.jpg" alt="">
+                </div>
+                <h3 class="profile_name">Kuntal Khan</h3>
+                <p> kun@abc.com</p>
+                <p>Software Designer</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit est explicabo quo iure quos. Cum vero dolore impedit molestias reprehenderit sed in voluptate ea. Nemo vero provident quibusdam architecto consequatur?</p>
+            </div> -->
+        </div>
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

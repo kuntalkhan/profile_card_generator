@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    background: url(images/bg.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.form {
+    height: 400px;
+    width: 45vw;
+    background: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.form .input_box {
+    width: 90%;
+    height: 45px;
+    position: relative;
+    /* background-color: red; */
+}
+
+.form .input_box .form_input {
+    width: 100%;
+    height: 35px;
+    color: #fff;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+}
+
+.form .input_box label {
+    position: absolute;
+    left: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+    font-size: 1em;
+}
+
+.form .input_box .form_input:focus+label,
+.form .input_box .form_input:valid+label {
+    top: -5px;
+    /* moves a bit up on focus or on valid*/
+    font-size: 0.8em;
+    color: #fff;
+}
+
+.form .input_box .form_input:focus {
+    border-bottom: 2px solid rgb(45, 153, 255);
+}
+
+.form .input_box textarea {
+    resize: none;
+}
+
+.form .image_uploader{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 70px;
+}
+.form .input_img{
+    height: 50px;
+    width: 200px;
+    /* background: rgba(255, 255, 255, 0.5); */
+    border: 1px dashed #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form .input_img label{
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+.form .input_img label span{
+    font-size: 1.3em;
+    display: block;
+    text-align: center;
+}
+
+.form .uploaded{
+    color: white;
+    color: #5f5f5f;
+    font-style: italic;
+    position: relative;
+    top: 8px;
+}
+#submit_btn{
+   height: 40px;
+    width: 200px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background: rgb(51 177 251);
+    box-shadow: 0 3px 13px #ffffff7d;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+#submit_btn:hover{
+    background: rgb(12, 161, 248);
+}
+
+.cards_container{
+    width: 100vw;
+    min-height: 50vh;
+    /* background-color: beige; */
+    position: absolute;
+    top: 45%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.cards_container h2{
+    font-size: 2em;
+
+}
+
+.cards_slider {
+    display: flex;
+    margin-top: 5px;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+} */
+
+.cover_image {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.cover_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile_pic {
+    width: 100px;
+    height: 100px;
+    margin: -50px auto 10px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ccc;
+}
+
+.profile_pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile_name {
+    font-size: 1.4em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.card p {
+    font-size: 0.95em;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+
