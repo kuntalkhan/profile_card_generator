@@ -1,63 +1,48 @@
-const cards = []; // Temporary storage
+const cards = []; 
 
 const formFields = {
-    name: document.getElementById('form_name'),
-    email: document.getElementById('form_email'),
-    designation: document.getElementById('form_designation'),
-    about: document.getElementById('form_about'),
-    profileImg: document.getElementById('form_profile_img'),
-    coverImg: document.getElementById('form_profile_cover')
+    name: document.querySelector('#form_name'),
+    email: document.querySelector('#form_email'),
+    designation: document.querySelector('#form_designation'),
+    about: document.querySelector('#form_about'),
+    profileImg: document.querySelector('#form_profile_img'),
+    coverImg: document.querySelector('#form_profile_cover')
 };
+let profile_url ='';
+let cover_url = '';
 
-let profileImgData = '';
-let coverImgData = '';
-
-// Update displayed file names
-formFields.profileImg.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (file) {
-        readImage(file, (dataUrl) => profileImgData = dataUrl);
-        const uploadedText = formFields.profileImg.closest('.img_upload_container').querySelector('.uploaded');
-        uploadedText.textContent = file.name;
-    }
+formFields.profileImg.addEventListener('input',(e)=>{
+    profile_url = URL.createObjectURL(e.target.files[0]);
+    const uploadedText = document.querySelector('#profile_img_file');
+    uploadedText.textContent = e.target.files[0].name;
 });
 
-formFields.coverImg.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (file) {
-        readImage(file, (dataUrl) => coverImgData = dataUrl);
-        const uploadedText = formFields.coverImg.closest('.img_upload_container').querySelector('.uploaded');
-        uploadedText.textContent = file.name;
-    }
+formFields.coverImg.addEventListener('input',(e)=>{
+    cover_url = URL.createObjectURL(e.target.files[0]);
+    const uploadedText = document.querySelector('#cover_img_file');
+    uploadedText.textContent = e.target.files[0].name;
 });
 
-function readImage(file, callback) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        callback(e.target.result);
-    };
-    reader.readAsDataURL(file);
-}
 
-// On Generate button click
 document.getElementById('submit_btn').addEventListener('click', () => {
     const cardData = {
-        name: formFields.name.value,
-        email: formFields.email.value,
-        designation: formFields.designation.value,
-        about: formFields.about.value,
-        profileImg: profileImgData,
-        coverImg: coverImgData
+        name: formFields.name.value.trim(), 
+        email: formFields.email.value.trim(), 
+        designation: formFields.designation.value.trim(), 
+        about: formFields.about.value.trim(),
+        profileImg: profile_url,
+        coverImg: cover_url,
     };
 
+    
     if (!cardData.name || !cardData.email || !cardData.designation || !cardData.about || !cardData.profileImg || !cardData.coverImg) {
         alert("Please fill in all fields and upload both images.");
         return;
     }
 
-    cards.push(cardData); // store in array
-    appendCard(cardData); // render on page
-    clearForm();
+    cards.push(cardData);
+    appendCard(cardData); 
+    clearForm(); 
 });
 
 function appendCard({ name, email, designation, about, profileImg, coverImg }) {
@@ -66,7 +51,7 @@ function appendCard({ name, email, designation, about, profileImg, coverImg }) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-        <div class="cover_image"><img src="${coverImg}" alt="Cover Image"></div>
+         <div class="cover_image"><img src="${coverImg}" alt="Cover Image"></div>
         <div class="profile_pic"><img src="${profileImg}" alt="Profile Picture"></div>
         <h3 class="profile_name">${name}</h3>
         <p>${email}</p>
@@ -77,16 +62,12 @@ function appendCard({ name, email, designation, about, profileImg, coverImg }) {
     container.appendChild(card);
 }
 
+
 function clearForm() {
     formFields.name.value = '';
     formFields.email.value = '';
     formFields.designation.value = '';
     formFields.about.value = '';
-    formFields.profileImg.value = '';
-    formFields.coverImg.value = '';
-    profileImgData = '';
-    coverImgData = '';
 
-    // reset displayed file name
-    document.querySelectorAll('.uploaded').forEach(p => p.textContent = 'Untitled.png');
+    document.querySelectorAll('.uploaded').forEach(p => p.textContent = 'No file chosen');
 }

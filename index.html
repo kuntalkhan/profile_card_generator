@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS card generatort</title>
+    <title>CSS Card Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -29,45 +29,31 @@
         <div class="image_uploader">
             <div class="img_upload_container">
                 <div class="input_img">
-                    <input type="file" name="profile_img" id="form_profile_img" accept="images/*" hidden>
+                    <input type="file" name="profile_img" id="form_profile_img" accept="image/*" hidden>
                     <label for="form_profile_img">
                         <span><ion-icon name="cloud-upload-outline"></ion-icon></span>
                         <p>Profile Image</p>
                     </label>
                 </div>
-                <p class="uploaded">Untitled.png</p>
-            </div>
+                <p class="uploaded" id="profile_img_file">No file chosen</p> </div>
             <div class="img_upload_container">
                 <div class="input_img">
-                    <input type="file" name="profile_cover" id="form_profile_cover" accept="images/*" hidden>
+                    <input type="file" name="profile_cover" id="form_profile_cover" accept="image/*" hidden>
                     <label for="form_profile_cover">
                         <span><ion-icon name="cloud-upload-outline"></ion-icon></span>
                         <p>Cover Image</p>
                     </label>
                 </div>
-                <p class="uploaded">Untitled.png</p>
-            </div>
+                <p class="uploaded" id = "cover_img_file">No file chosen</p> </div>
         </div>
 
-        <input type="button" value="Genereate" id="submit_btn">
+        <input type="button" value="Generate" id="submit_btn">
     </div>
     <div class="hz_line"></div>
     <div class="cards_container">
         <h2>Cards</h2>
         <div class="cards_slider">
-            <!-- <div class="card">
-                <div class="cover_image">
-                    <img src="images/cover.jpg" alt="">
-                </div>
-                <div class="profile_pic">
-                    <img src="images/profile_2.jpg" alt="">
-                </div>
-                <h3 class="profile_name">Kuntal Khan</h3>
-                <p> kun@abc.com</p>
-                <p>Software Designer</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit est explicabo quo iure quos. Cum vero dolore impedit molestias reprehenderit sed in voluptate ea. Nemo vero provident quibusdam architecto consequatur?</p>
-            </div> -->
-        </div>
+            </div>
     </div>
 
 
