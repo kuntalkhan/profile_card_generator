@@ -73,19 +73,21 @@ body {
     resize: none;
 }
 
-.form .image_uploader{
+.form .image_uploader {
     display: flex;
     justify-content: space-around;
     width: 100%;
     height: 70px;
 }
-.form .img_upload_container{
+
+.form .img_upload_container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
 }
-.form .input_img{
+
+.form .input_img {
     height: 50px;
     width: 200px;
     border: 1px dashed #ffffff;
@@ -95,7 +97,7 @@ body {
     border-radius: 10px;
 }
 
-.form .input_img label{
+.form .input_img label {
     color: #fff;
     cursor: pointer;
     display: flex;
@@ -103,19 +105,20 @@ body {
     align-items: center;
 }
 
-.form .input_img label span{
+.form .input_img label span {
     font-size: 1.3em;
     display: block;
     text-align: center;
 }
 
-.form .uploaded{
+.form .uploaded {
     color: #6d6d6d;
     font-style: italic;
     font-size: 0.8em;
 }
-#submit_btn{
-   height: 40px;
+
+#submit_btn {
+    height: 40px;
     width: 200px;
     border-radius: 20px;
     outline: none;
@@ -127,11 +130,12 @@ body {
     cursor: pointer;
     transition: background 0.3s ease;
 }
-#submit_btn:hover{
+
+#submit_btn:hover {
     background: rgb(12, 161, 248);
 }
 
-.cards_container{
+.cards_container {
     width: 100vw;
     min-height: 50vh;
     position: relative;
@@ -143,7 +147,7 @@ body {
     padding-bottom: 50px;
 }
 
-.cards_container h2{
+.cards_container h2 {
     font-size: 2em;
     color: #fff;
     margin-bottom: 20px;
@@ -174,6 +178,30 @@ body {
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.function_btn {
+    height: 25px;
+    font-size: 1.3em;
+    line-height: 25px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+    margin-bottom: 5px;
+}
+
+.function_btn span{
+    cursor: pointer;
+    background: transparent;
+}
+
+.function_btn #edit:hover{
+    color: #6b6b6b;
+}
+
+.function_btn #delete:hover{
+    color: #fa95a2;
 }
 
 .cover_image {

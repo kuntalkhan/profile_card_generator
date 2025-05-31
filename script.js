@@ -8,6 +8,11 @@ const formFields = {
     profileImg: document.querySelector('#form_profile_img'),
     coverImg: document.querySelector('#form_profile_cover')
 };
+
+const edit_btn = document.getElementById('edit')
+const del_btn = document.getElementById('delete')
+const container = document.querySelector('.cards_slider')
+
 let profile_url ='';
 let cover_url = '';
 
@@ -41,27 +46,9 @@ document.getElementById('submit_btn').addEventListener('click', () => {
     }
 
     cards.push(cardData);
-    appendCard(cardData); 
+    loadData();
     clearForm(); 
 });
-
-function appendCard({ name, email, designation, about, profileImg, coverImg }) {
-    const container = document.querySelector('.cards_slider');
-
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-         <div class="cover_image"><img src="${coverImg}" alt="Cover Image"></div>
-        <div class="profile_pic"><img src="${profileImg}" alt="Profile Picture"></div>
-        <h3 class="profile_name">${name}</h3>
-        <p>${email}</p>
-        <p>${designation}</p>
-        <p>${about}</p>
-    `;
-
-    container.appendChild(card);
-}
-
 
 function clearForm() {
     formFields.name.value = '';
@@ -71,3 +58,34 @@ function clearForm() {
 
     document.querySelectorAll('.uploaded').forEach(p => p.textContent = 'No file chosen');
 }
+
+function deleteCard(id){
+    if(confirm("Are you sure?")){
+    cards.splice(id,1)
+    console.log('btn clicked', id)
+    loadData();
+    }
+}
+
+function loadData(){
+    container.innerHTML =''
+    cards.map((e,i)=>{
+        container.innerHTML += `
+        <div class="card">
+                <div class="function_btn">
+                    <span ><ion-icon name="create" id="edit"></ion-icon></span>
+                    <span ><ion-icon name="close-circle" id="delete" onclick="deleteCard(${i})"></ion-icon></span>
+                </div>
+                <div class="cover_image"><img src="${e.coverImg}"
+                        alt="Cover Image"></div>
+                <div class="profile_pic"><img src="${e.profileImg}"
+                        alt="Profile Picture"></div>
+                <h3 class="profile_name">${e.name}</h3>
+                <p>${e.email}</p>
+                <p>${e.designation}</p>
+                <p>${e.about}</p>
+            </div>
+        `
+    })
+}
+ loadData()
